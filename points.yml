@@ -23,8 +23,7 @@ student:
 ai_usage:
   used: true
   tools: "Gemini"
-  description:
-    "Used Gemini to understand the assignment requirements, select a suitable Azerbaijani website (iTicket.az), and generate the initial Page Object Model classes (BasePage, LoginPage, LoginTest). Also used it to help construct the complex XPaths for the login form."
+  description: "Used Gemini to understand the assignment requirements, select a suitable Azerbaijani website (iTicket.az), and generate the initial Page Object Model classes (BasePage, LoginPage, LoginTest). Also used it to help construct the complex XPaths for the login form."
 
 # ----------------------------------------------------------
 # Quality requirements (gatekeepers)
@@ -33,19 +32,19 @@ ai_usage:
 # Set each to true when you are confident it applies.
 # ----------------------------------------------------------
 quality:
-  gitignore: 
+  gitignore:
     done: true
     description: "Unnecessary files are ignored (.gitignore covers build output, IDE files, etc.)"
 
-  structured_code: 
+  structured_code:
     done: true
     description: "Code is organized into classes and functions, not one big file"
 
-  readable_code: 
+  readable_code:
     done: true
     description: "Function and method names describe what they do, test suite reads like a test description"
 
-  low_redundancy: 
+  low_redundancy:
     done: true
     description: "Minimal code duplication, shared logic is extracted into reusable methods"
 
@@ -53,82 +52,82 @@ quality:
 # Basic tasks (B)
 # ----------------------------------------------------------
 basic:
-  login_form: 
+  login_form:
     done: true
     description: "Fill a simple form and submit it (e.g. login with username and password)"
 
-  form_with_user: 
+  form_with_user:
     done: false
     description: "Submit a form that requires a registered/logged-in user"
 
-  logout: 
+  logout:
     done: false
     description: "Log out from the application and verify it"
 
-  fill_input: 
-    count: 3
+  fill_input:
+    count: 4
     description: "Fill an input field (text, radio, checkbox, date, etc.) — each different type counts as one"
 
-  send_form: 
+  send_form:
     count: 1
     description: "Submit a form (each distinct form counts as one)"
 
-  static_page_test: 
+  static_page_test:
     done: true
     description: "Test a static page (verify text content, element presence, etc.)"
 
-  multiple_page_test: 
+  multiple_page_test:
     done: false
     description: "Define an array of URLs or page data, iterate over them and verify something on each page (e.g. check title or a specific element on 5 different pages using a loop)"
 
-  complex_xpath: 
+  complex_xpath:
     count: 6
     description: "Use a complex XPath expression (e.g. //div[@class='content']//a[contains(@href,'profile')])"
 
-  textarea: 
+  textarea:
     done: false
     description: "Fill or read the content of a textarea element"
 
-  dropdown: 
+  dropdown:
     done: false
     description: "Select an option from a drop-down (using Select class or similar)"
     link: "https://www.selenium.dev/documentation/webdriver/support_features/select_lists/"
 
-  radio_button: 
+  radio_button:
     done: false
     description: "Select or verify a radio button"
 
-  at_least_4_classes: 
+  at_least_4_classes:
     done: true
     description: "Project has at least 4 Java classes"
 
-  at_least_6_classes: 
+  at_least_6_classes:
     done: false
     description: "Project has at least 6 Java classes (cumulative with above)"
 
-  at_least_8_classes: 
+  at_least_8_classes:
     done: false
     description: "Project has at least 8 Java classes (cumulative with above)"
 
-  explicit_wait: 
+  explicit_wait:
     done: true
     description: "Use explicit wait (WebDriverWait with ExpectedConditions)"
     link: "https://www.selenium.dev/documentation/webdriver/waits/"
 
-  page_title: 
+  page_title:
     done: true
     description: "Read and verify the page title using getTitle()"
 
-  page_object_pattern: 
+  page_object_pattern:
     done: true
     description: "Use Page Object pattern with at least 2 page classes"
     link: "https://www.selenium.dev/documentation/test_practices/encouraged/page_object_models/"
 
-  base_page_class: 
+  base_page_class:
     done: true
     description: "Create a BasePage class that other page classes extend"
 
-  readable_tests: 
+  readable_tests:
     done: true
     description: "Test methods have descriptive names so the suite reads like a test specification"
 
@@ -136,78 +135,78 @@ basic:
 # Advanced tasks (A)
 # ----------------------------------------------------------
 advanced:
-  webdriver_config: 
+  webdriver_config:
     done: true
     description: "Configure WebDriver with custom options (e.g. ChromeOptions, window size, user agent)"
     link: "https://www.selenium.dev/documentation/webdriver/drivers/options/"
 
-  cookie_manipulation: 
+  cookie_manipulation:
     done: false
     description: "Manipulate cookies meaningfully (e.g. add/delete/read cookies, skip consent popup)"
     link: "https://www.selenium.dev/documentation/webdriver/interactions/cookies/"
 
-  hover_test: 
+  hover_test:
     done: false
     description: "Perform a hover (mouse over) action and verify the result"
     link: "https://www.selenium.dev/documentation/webdriver/actions_api/mouse/"
 
-  drag_and_drop: 
+  drag_and_drop:
     done: false
     description: "Drag and drop an element to another location"
     link: "https://www.selenium.dev/documentation/webdriver/actions_api/mouse/"
 
-  file_upload: 
+  file_upload:
     done: false
     description: "Upload a file through a file input and verify it was uploaded"
     link: "https://www.selenium.dev/documentation/webdriver/elements/file_upload/"
 
-  history_test: 
+  history_test:
     done: true
     description: "Test browser history navigation (e.g. back(), forward())"
     link: "https://www.selenium.dev/documentation/webdriver/interactions/navigation/"
 
-  test_dependencies: 
+  test_dependencies:
     done: false
     description: "Make a test method depend on another using dependsOnMethods or dependsOnGroups — e.g. a logout test that only runs if login passed"
     link: "https://testng.org/#_test_methods_classes_and_groups"
 
-  email_checking: 
+  email_checking:
     done: false
     description: "Verify an e-mail was sent (e.g. registration activation link, password reset)"
 
-  random_data: 
-    done: false
+  random_data:
+    done: true
     description: "Generate random test data (e.g. random username, email) and use it in a test"
 
-  download_files: 
+  download_files:
     done: false
     description: "Download one or more files to a folder and verify they were saved"
 
-  config_file: 
-    done: false
+  config_file:
+    done: true
     description: "Store test settings in an external file (e.g. .properties, .yml, or .env) and read them at runtime — things like base URL, username, password, browser type. No hardcoded values in your test code"
 
-  javascript_executor: 
+  javascript_executor:
     done: true
     description: "Use JavascriptExecutor to perform an action (e.g. scroll, click hidden element)"
     link: "https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/JavascriptExecutor.html"
 
-  screenshot_on_failure: 
+  screenshot_on_failure:
     done: false
     description: "Automatically take a screenshot when a test fails (e.g. using a TestNG ITestListener)"
     link: "https://www.browserstack.com/guide/take-screenshots-in-selenium"
 
-  headless_execution: 
+  headless_execution:
     done: false
     description: "Run tests in headless mode (browser without visible UI)"
     link: "https://www.selenium.dev/documentation/webdriver/browsers/chrome/"
 
-  cross_browser_testing: 
+  cross_browser_testing:
     done: false
     description: "Run the same tests on multiple browsers (e.g. Chrome and Firefox) using parameterization"
     link: "https://www.selenium.dev/documentation/webdriver/browsers/"
 
-  dockerized_execution: 
+  dockerized_execution:
     done: true
     description: "Run tests inside a Docker container (e.g. using docker-compose with Selenium Grid)"
     link: "https://www.selenium.dev/documentation/grid/getting_started/"
