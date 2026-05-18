@@ -1,6 +1,7 @@
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -24,8 +25,23 @@ public class LoginTest {
     public void testIticketLoginWithInvalidCredentials() throws Exception {
         driver.get("https://iticket.az/");
 
-        LoginPage loginPage = new LoginPage(driver);
+        String pageTitle = driver.getTitle();
+        Assert.assertTrue(pageTitle.contains("iTicket.AZ"));
 
+        driver.navigate().to("https://iticket.az/en/events/concerts");
+        Thread.sleep(1500);
+        driver.navigate().back();
+        Thread.sleep(1500);
+
+        SearchPage searchPage = new SearchPage(driver);
+        Assert.assertTrue(searchPage.isPopularEventsHeaderVisible());
+
+        searchPage.openSearchModal();
+        searchPage.typeSearchQuery("Jazz");
+        Thread.sleep(1500);
+        driver.navigate().refresh(); 
+
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.clickHeaderLogin();
         loginPage.enterCredentials("teststudent@elte.hu", "WrongPassword123!");
         loginPage.submitLogin();
